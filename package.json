@@ -1,0 +1,29 @@
+{
+    "name": "insomnia-plugin-debug-helper",
+    "version": "1.0.0",
+    "description": "Insomnia plugin that allows users to open an error tracking service when a request fails",
+    "author": "Jose Rodriguez",
+    "main": "index.js",
+    "insomnia": {
+        "name": "debug-helper",
+        "description": "Insomnia plugin that allows users to open an error tracking service when a request fails"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/jrodalo/insomnia-plugin-debug-helper.git"
+    },
+    "bugs": {
+        "url": "https://github.com/jrodalo/insomnia-plugin-debug-helper/issues"
+    },
+    "homepage": "https://github.com/jrodalo/insomnia-plugin-debug-helper",
+    "keywords": [
+        "insomnia",
+        "plugin"
+    ],
+    "scripts": {
+        "test": "jest"
+    },
+    "devDependencies": {
+        "jest": "^25.3.0"
+    }
+}
