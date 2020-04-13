@@ -3,6 +3,7 @@
     "version": "1.0.1",
     "description": "Insomnia plugin that allows users to open an error tracking service when a request fails",
     "author": "Jose Rodriguez",
+    "license": "MIT",
     "main": "index.js",
     "insomnia": {
         "name": "debug-helper",
