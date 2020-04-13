@@ -18,6 +18,7 @@
     },
     "homepage": "https://github.com/jrodalo/insomnia-plugin-debug-helper",
     "keywords": [
+        "insomnia-plugin",
         "insomnia",
         "plugin"
     ],
