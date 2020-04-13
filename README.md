@@ -56,4 +56,4 @@ This plugin uses a Request-ID header in the response to create a link that can b
 }
 ```
 
-Of course, you need to make sure that your API returns a unique request ID header.
+Of course, you need to make sure that your API logs and returns a unique request ID header.
