@@ -1,6 +1,7 @@
 module.exports = {
     title: 'Debug Helper config missing',
     message: `
+<div class="pad">
 You need to create a new <a href="https://support.insomnia.rest/article/18-environment-variables">environment variable</a> like this:
 <p>
 <pre>
@@ -15,5 +16,6 @@ You need to create a new <a href="https://support.insomnia.rest/article/18-envir
     <li>* Replace the URL with yours using <i>__REQUEST_ID__</i> as a placeholder for the actual Request ID.</li>
 </ul>
 <p>Have a look at the <a href="https://github.com/jrodalo/insomnia-plugin-debug-helper">documentation</a> to see some examples.</p>
+</div>
 `
 };

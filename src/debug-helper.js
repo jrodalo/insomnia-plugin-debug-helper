@@ -4,7 +4,7 @@ module.exports = function (context) {
 
     if (!config.REQUEST_ID_HEADER || !config.DEBUG_URL) {
         const { title, message } = require('./help');
-        context.app.showGenericModalDialog(title, { html: message });
+        context.app.dialog(title, createHtmlElementWith(message));
         return;
     }
 
@@ -13,10 +13,25 @@ module.exports = function (context) {
 
     if (httpStatus >= 400 && requestId) {
         const content = `
-            <pre>${context.response.getBody().toString()}</pre>
-            <p><a href="${config.DEBUG_URL.replace(/__REQUEST_ID__/, requestId)}">View more details</a></p>
+            <div class="pad">
+                <div class="notice error text-left">
+                    <pre>${context.response.getBody().toString()}</pre>
+                </div>
+                <p class="pad-top">
+                    <a href="${config.DEBUG_URL.replace(/__REQUEST_ID__/, requestId)}">
+                        View more details
+                        <i class="fa fa-external-link"></i>
+                    </a>
+                </p>
+            </div>
         `;
 
-        context.app.showGenericModalDialog(`Request ID: ${requestId}`, { html: content });
+        context.app.dialog(`Request ID: ${requestId}`, createHtmlElementWith(content));
     }
 };
+
+function createHtmlElementWith(content) {
+    const element = document.createElement('div');
+    element.innerHTML = content;
+    return element;
+}

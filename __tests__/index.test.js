@@ -18,11 +18,7 @@ describe('Debug Helper', () => {
 
         expect(action).toHaveBeenCalledWith(
             'Debug Helper config missing',
-            expect.objectContaining(
-                {
-                    html: expect.any(String)
-                }
-            )
+            expect.any(HTMLElement)
         );
     });
 
@@ -68,13 +64,18 @@ describe('Debug Helper', () => {
 
         expect(action).toHaveBeenCalledWith(
             expect.stringContaining('11111111-2222-3333-4444-555555555555'),
-            expect.objectContaining(
-                {
-                    html: expect.stringContaining('http://my-service?search=11111111-2222-3333-4444-555555555555'),
-                }
-            )
+            expect.htmlContaining('http://my-service?search=11111111-2222-3333-4444-555555555555')
         );
     });
+});
+
+expect.extend({
+    htmlContaining(received, expected) {
+        return {
+            message: `expected that ${received.innerHTML} contains ${expected}`,
+            pass: received.innerHTML.includes(expected),
+        };
+    }
 });
 
 class ContextBuilder {
@@ -106,7 +107,7 @@ class ContextBuilder {
     }
 
     withDialog(action) {
-        this.app.showGenericModalDialog = action;
+        this.app.dialog = action;
         return this;
     }
 
