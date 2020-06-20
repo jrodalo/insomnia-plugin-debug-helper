@@ -18,7 +18,7 @@ module.exports = function (context) {
                     <pre>${context.response.getBody().toString()}</pre>
                 </div>
                 <p class="pad-top">
-                    <a href="${config.DEBUG_URL.replace(/__REQUEST_ID__/, requestId)}">
+                    <a href="${config.DEBUG_URL.replace(/__REQUEST_ID__/g, requestId)}">
                         View more details
                         <i class="fa fa-external-link"></i>
                     </a>

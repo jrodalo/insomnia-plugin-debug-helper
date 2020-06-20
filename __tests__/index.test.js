@@ -67,6 +67,25 @@ describe('Debug Helper', () => {
             expect.htmlContaining('http://my-service?search=11111111-2222-3333-4444-555555555555')
         );
     });
+
+    it('allows multiple placeholders in the link', () => {
+        const action = jest.fn();
+        const config = Object.assign(validConfig, {DEBUG_URL: 'http://my-service?search=__REQUEST_ID__&amp;other=__REQUEST_ID__'});
+        const context = new ContextBuilder()
+            .withConfig(config)
+            .withStatusCode(502)
+            .withRequestId('11111111-2222-3333-4444-555555555555')
+            .withBody('{"error": "Something went wrong :(")}')
+            .withDialog(action)
+            .build();
+
+        responseHook(context);
+
+        expect(action).toHaveBeenCalledWith(
+            expect.stringContaining('11111111-2222-3333-4444-555555555555'),
+            expect.htmlContaining('http://my-service?search=11111111-2222-3333-4444-555555555555&amp;other=11111111-2222-3333-4444-555555555555')
+        );
+    });
 });
 
 expect.extend({
