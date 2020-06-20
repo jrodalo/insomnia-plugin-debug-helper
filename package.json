@@ -7,7 +7,8 @@
     "main": "index.js",
     "insomnia": {
         "name": "debug-helper",
-        "description": "Insomnia plugin that allows users to open an error tracking service when a request fails",
+        "displayName": "Debug Helper",
+        "description": "Open an error tracking service when a request fails",
         "images": {
             "icon": "icon.svg"
         }
